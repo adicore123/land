@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>יוסי אברהמי - חשמלאי מוסמך והוגן (אתר לדוגמא)</title>
+
+    <!-- Modern Font: Rubik -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Libraries CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Rubik', 'sans-serif'],
+                    },
+                    colors: {
+                        electric: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        },
+                        navy: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        }
+                    },
+                    animation: {
+                        'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: #f59e0b !important;
+            width: 20px !important;
+            border-radius: 4px !important;
+            transition: all 0.3s ease;
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #fbbf24, #fff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Initial state for hero elements to prevent FOUC */
+        .hero-hidden {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            /* Pre-set transform for smoother start */
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 overflow-x-hidden pb-12">
+
+    <!-- Demo Banner -->
+    <div
+        class="fixed bottom-0 left-0 w-full bg-slate-900 text-white text-center py-3 z-[100] border-t border-electric-500 shadow-2xl flex items-center justify-center gap-2">
+        <i data-lucide="alert-triangle" class="w-5 h-5 text-electric-500"></i>
+        <span class="font-bold text-sm md:text-base">שים לב: זהו אתר להדגמה בלבד. אין להשאיר פרטים אישיים או כרטיס
+            אשראי.</span>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 glass-dark transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
+            <!-- Logo (Personal Brand) -->
+            <div class="flex items-center gap-3 group cursor-pointer" onclick="window.scrollTo(0,0)">
+                <div class="relative bg-electric-500 rounded-full p-2">
+                    <i data-lucide="zap" class="w-6 h-6 text-white fill-white"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-black text-white text-xl leading-none tracking-tight">יוסי<span
+                            class="text-electric-400">אברהמי</span></span>
+                    <span class="text-xs text-slate-400 font-medium tracking-wider">חשמלאי מוסמך 123456</span>
+                </div>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8 font-medium text-slate-300">
+                <a href="#services" class="hover:text-electric-400 transition-colors">מה אני עושה</a>
+                <a href="#about" class="hover:text-electric-400 transition-colors">קצת עליי</a>
+                <a href="#reviews" class="hover:text-electric-400 transition-colors">המלצות</a>
+            </div>
+
+            <!-- Emergency Button -->
+            <a href="tel:0500000000"
+                class="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-bold shadow-lg shadow-red-500/30 transition-all hover:scale-105 animate-pulse-fast">
+                <i data-lucide="phone-call" class="w-5 h-5"></i>
+                <span class="hidden md:inline">יוסי, יש לי חירום!</span>
+                <span class="md:hidden">חייג ליוסי</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-[85vh] w-full bg-navy-900 overflow-hidden flex items-center justify-center">
+        <!-- Background Image (More personal feeling) -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1558227691-41ea78d1f631?q=80&w=2000&auto=format&fit=crop"
+                class="w-full h-full object-cover opacity-25" alt="Electrician Background">
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/80 to-transparent"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 container mx-auto px-6 text-center md:text-right pt-16">
+            <div id="hero-badge"
+                class="hero-hidden inline-flex items-center gap-2 bg-electric-500/10 border border-electric-500/20 rounded-full px-4 py-1 mb-6 backdrop-blur-sm"
+                style="transform: translateY(-20px);"> <!-- Override for badge direction -->
+                <span class="w-2 h-2 rounded-full bg-electric-500 animate-ping"></span>
+                <span class="text-electric-400 text-sm font-bold tracking-wide">אני זמין עכשיו בתל אביב והמרכז</span>
+            </div>
+
+            <h1 id="hero-title" class="hero-hidden text-5xl md:text-7xl font-black text-white leading-tight mb-6"
+                style="transform: translateX(30px);"> <!-- Override for title direction -->
+                החשמל נפל? <br>
+                <span class="text-gradient">אני בדרך.</span>
+            </h1>
+
+            <p id="hero-desc"
+                class="hero-hidden text-slate-300 text-lg md:text-xl max-w-xl md:mr-0 mx-auto mb-10 leading-relaxed font-light">
+                נעים להכיר, אני יוסי. חשמלאי שאוהב את המקצוע ונותן שירות מכל הלב.
+                מגיע מהר, מתקן במקצועיות, ומשאיר נקי. בלי אותיות קטנות ובלי הפתעות במחיר.
+            </p>
+
+            <div id="hero-btns" class="flex flex-col md:flex-row gap-4 justify-center md:justify-start">
+                <a href="#contact"
+                    class="hero-hidden bg-electric-500 hover:bg-electric-600 text-white font-bold py-4 px-8 rounded-xl shadow-xl shadow-electric-500/20 transition-all transform hover:-translate-y-1 flex justify-center items-center gap-2">
+                    הזמן אותי עכשיו
+                    <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                </a>
+                <a href="https://wa.me/972500000000"
+                    class="hero-hidden bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 font-bold py-4 px-8 rounded-xl transition-all flex justify-center items-center gap-2">
+                    <i data-lucide="message-circle" class="w-5 h-5 text-green-400"></i>
+                    דבר איתי בווצאפ
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-20 overflow-hidden">
+
+        <!-- Trust Stats (Personalized) -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-24 border-b border-slate-200 pb-12">
+            <div class="text-center" data-aos="fade-up" data-aos-delay="0">
+                <div class="flex justify-center mb-2"><i data-lucide="award" class="w-8 h-8 text-electric-500"></i>
+                </div>
+                <h3 class="text-xl font-bold text-navy-900">רישיון מוסמך</h3>
+                <p class="text-slate-500 text-sm">מספר 123456</p>
+            </div>
+            <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex justify-center mb-2"><i data-lucide="clock" class="w-8 h-8 text-electric-500"></i>
+                </div>
+                <h3 class="text-xl font-bold text-navy-900">זמינות גבוהה</h3>
+                <p class="text-slate-500 text-sm">גם בשעות לא שגרתיות</p>
+            </div>
+            <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex justify-center mb-2"><i data-lucide="shield-check"
+                        class="w-8 h-8 text-electric-500"></i></div>
+                <h3 class="text-xl font-bold text-navy-900">אחריות אישית</h3>
+                <p class="text-slate-500 text-sm">על כל עבודה שלי</p>
+            </div>
+            <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                <div class="flex justify-center mb-2"><i data-lucide="thumbs-up" class="w-8 h-8 text-electric-500"></i>
+                </div>
+                <h3 class="text-xl font-bold text-navy-900">מחיר הוגן</h3>
+                <p class="text-slate-500 text-sm">מסוכם מראש, בלי הפתעות</p>
+            </div>
+        </div>
+
+        <!-- About Me Section (UPDATED IMAGE) -->
+        <section id="about" class="mb-24 flex flex-col md:flex-row items-center gap-12" data-aos="fade-up">
+            <div class="md:w-1/3 relative">
+                <div class="absolute -inset-4 bg-electric-100 rounded-full blur-2xl -z-10"></div>
+                <!-- Updated Photo -->
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop"
+                    class="rounded-2xl shadow-2xl rotate-2 hover:rotate-0 transition-all duration-500 object-cover h-80 w-full"
+                    alt="Yossi Electrician">
+                <div
+                    class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg border-r-4 border-electric-500">
+                    <p class="font-bold text-navy-900">יוסי אברהמי</p>
+                    <p class="text-xs text-slate-500">חשמלאי שלך</p>
+                </div>
+            </div>
+            <div class="md:w-2/3">
+                <h2 class="text-3xl font-black text-navy-900 mb-4">קצת עליי</h2>
+                <p class="text-slate-600 text-lg leading-relaxed mb-6">
+                    היי, אני יוסי. כבר 15 שנה שאני חי ונושם חשמל. התחלתי כעוזר חשמלאי מיד אחרי הצבא, והיום אני גאה לתת
+                    שירות למאות בתי אב במרכז.
+                    <br><br>
+                    אני מאמין שכשאתה מזמין בעל מקצוע הביתה, אתה צריך להרגיש בטוח. בגלל זה אני מקפיד להגיע בזמן, להסביר
+                    בדיוק מה הבעיה ומה הפתרון, ולהשאיר את המקום נקי כאילו זה הבית שלי. אצלי אין "מוקד שירות" – אתה
+                    מתקשר, ואני עונה.
+                </p>
+                <div class="flex gap-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Signature_sample.svg/1200px-Signature_sample.svg.png"
+                        class="h-10 opacity-50" alt="Signature">
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="mb-24 bg-slate-100 rounded-[3rem] p-8 md:p-12">
+            <div class="flex justify-between items-end mb-10" data-aos="fade-left">
+                <div>
+                    <span class="text-electric-600 font-bold tracking-wider text-sm uppercase">במה אני יכול
+                        לעזור?</span>
+                    <h2 class="text-3xl md:text-4xl font-black text-navy-900 mt-2">השירותים שלי</h2>
+                </div>
+
+                <div class="hidden md:flex gap-2">
+                    <button
+                        class="swiper-button-prev-custom p-3 rounded-full bg-white text-slate-600 hover:text-electric-600 shadow-sm transition-colors">
+                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </button>
+                    <button
+                        class="swiper-button-next-custom p-3 rounded-full bg-navy-900 text-white hover:bg-navy-800 transition-colors shadow-lg">
+                        <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- The Swiper -->
+            <div class="swiper servicesSwiper !pb-12 !px-2 md:!px-0 overflow-visible">
+                <div class="swiper-wrapper">
+                    <!-- Cards with "I" language -->
+                    <div class="swiper-slide h-auto">
+                        <div
+                            class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all h-full border border-slate-200">
+                            <i data-lucide="zap-off" class="w-10 h-10 text-electric-500 mb-4"></i>
+                            <h3 class="text-xl font-bold text-navy-900 mb-2">טיפול בקצרים</h3>
+                            <p class="text-slate-500 text-sm">פקק קופץ כל הזמן? יש ריח שרוף מהלוח? אני אגיע לאתר את
+                                המקור ולתקן אותו בבטיחות.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-auto">
+                        <div
+                            class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all h-full border border-slate-200">
+                            <i data-lucide="heater" class="w-10 h-10 text-electric-500 mb-4"></i>
+                            <h3 class="text-xl font-bold text-navy-900 mb-2">דוד שמש וחשמל</h3>
+                            <p class="text-slate-500 text-sm">המים לא מתחממים? המפסק נשרף? אני מחליף גופי חימום,
+                                תרמוסטטים ומאיצים במהירות.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-auto">
+                        <div
+                            class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all h-full border border-slate-200">
+                            <i data-lucide="lightbulb" class="w-10 h-10 text-electric-500 mb-4"></i>
+                            <h3 class="text-xl font-bold text-navy-900 mb-2">התקנת גופי תאורה</h3>
+                            <p class="text-slate-500 text-sm">קניתם שנדליר יפה? רוצים ספוטים בסלון? אני אתקין אותם בצורה
+                                אסתטית וחזקה.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-auto">
+                        <div
+                            class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all h-full border border-slate-200">
+                            <i data-lucide="plug-zap" class="w-10 h-10 text-electric-500 mb-4"></i>
+                            <h3 class="text-xl font-bold text-navy-900 mb-2">עמדות טעינה</h3>
+                            <p class="text-slate-500 text-sm">התחדשתם ברכב חשמלי? תתחדשו! אני מתקין עמדות טעינה ביתיות
+                                כולל כל האישורים הנדרשים.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-auto">
+                        <div
+                            class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all h-full border border-slate-200">
+                            <i data-lucide="home" class="w-10 h-10 text-electric-500 mb-4"></i>
+                            <h3 class="text-xl font-bold text-navy-900 mb-2">בדיקות תקינות</h3>
+                            <p class="text-slate-500 text-sm">בדיקת הארקה, ביקורת חברת חשמל, ובדיקות בטיחות תקופתיות
+                                לדירות שכורות וחדשות.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <!-- Reviews Section (Expanded) -->
+        <section id="reviews" class="mb-20">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <span class="text-electric-600 font-bold uppercase tracking-widest text-sm">המילה של הלקוחות שלי</span>
+                <h2 class="text-3xl font-black text-navy-900">תראו מה כותבים עליי</h2>
+            </div>
+
+            <div class="swiper reviewsSwiper !pb-12 !px-4 md:!px-0">
+                <div class="swiper-wrapper">
+                    <!-- Review 1 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-lg h-full relative">
+                            <div class="absolute top-6 left-6 text-electric-100"><i data-lucide="quote"
+                                    class="w-10 h-10 fill-current"></i></div>
+                            <div class="flex text-electric-500 mb-4"><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i></div>
+                            <p class="text-slate-600 italic mb-6 text-sm">"יוסי הגיע אליי בשישי בצהריים אחרי שכל החשמל
+                                במטבח נפל רגע לפני הבישולים. הוא הרגיע אותי בטלפון, הגיע תוך חצי שעה ותיקן את הבעיה
+                                בצ'יק. המחיר היה ממש הוגן יחסית לשעת חירום."</p>
+                            <div>
+                                <h4 class="font-bold text-navy-900">רונית כהן</h4>
+                                <span class="text-xs text-slate-500">גבעתיים</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Review 2 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-lg h-full relative">
+                            <div class="absolute top-6 left-6 text-electric-100"><i data-lucide="quote"
+                                    class="w-10 h-10 fill-current"></i></div>
+                            <div class="flex text-electric-500 mb-4"><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i></div>
+                            <p class="text-slate-600 italic mb-6 text-sm">"חיפשתי חשמלאי להתקנת עמדת טעינה לרכב. יוסי
+                                היה היחיד שבא לראות את השטח לפני שנתן הצעת מחיר, הסביר לי על האופציות ועשה עבודה סופר
+                                אסתטית עם התעלות. מקצוען אמיתי."</p>
+                            <div>
+                                <h4 class="font-bold text-navy-900">אייל ברקוביץ'</h4>
+                                <span class="text-xs text-slate-500">ראשון לציון</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Review 3 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-lg h-full relative">
+                            <div class="absolute top-6 left-6 text-electric-100"><i data-lucide="quote"
+                                    class="w-10 h-10 fill-current"></i></div>
+                            <div class="flex text-electric-500 mb-4"><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i></div>
+                            <p class="text-slate-600 italic mb-6 text-sm">"הדוד שמש הפסיק לחמם באמצע החורף. יוסי הגיע,
+                                זיהה שזה רק הפלאנג', החליף במקום ולא ניסה לדחוף לי דוד חדש כמו אחרים. אמינות זה הדבר הכי
+                                חשוב."</p>
+                            <div>
+                                <h4 class="font-bold text-navy-900">דניאל לוי</h4>
+                                <span class="text-xs text-slate-500">תל אביב</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Review 4 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-lg h-full relative">
+                            <div class="absolute top-6 left-6 text-electric-100"><i data-lucide="quote"
+                                    class="w-10 h-10 fill-current"></i></div>
+                            <div class="flex text-electric-500 mb-4"><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i></div>
+                            <p class="text-slate-600 italic mb-6 text-sm">"שיפצנו את הדירה ויוסי עשה לנו את כל עבודות
+                                החשמל מחדש. הזיז נקודות, הוסיף שקעים, התקין גופים. עבד נקי ומסודר ותמיד עם חיוך. ממליצה
+                                בחום!"</p>
+                            <div>
+                                <h4 class="font-bold text-navy-900">מיכל אהרוני</h4>
+                                <span class="text-xs text-slate-500">חולון</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Review 5 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-lg h-full relative">
+                            <div class="absolute top-6 left-6 text-electric-100"><i data-lucide="quote"
+                                    class="w-10 h-10 fill-current"></i></div>
+                            <div class="flex text-electric-500 mb-4"><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
+                                    class="fill-current w-4 h-4"></i></div>
+                            <p class="text-slate-600 italic mb-6 text-sm">"בן אדם זהב. הסביר לי בטלפון איך לבדוק אם זה
+                                רק הפקק לפני שבא כדי לחסוך לי ביקור. בסוף כשהיה צריך להגיע הוא היה 100%. אין דברים
+                                כאלה."</p>
+                            <div>
+                                <h4 class="font-bold text-navy-900">אבי ביטון</h4>
+                                <span class="text-xs text-slate-500">בת ים</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <!-- CTA Section (Personal contact) -->
+        <section id="contact" class="relative bg-navy-900 rounded-[2.5rem] p-8 md:p-16 overflow-hidden mb-24"
+            data-aos="zoom-in-up">
+            <div
+                class="absolute top-0 right-0 w-96 h-96 bg-electric-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2">
+            </div>
+
+            <div class="relative z-10 flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 text-center md:text-right">
+                    <h2 class="text-3xl md:text-5xl font-black text-white mb-6">צריך חשמלאי? דבר איתי.</h2>
+                    <p class="text-slate-300 text-lg mb-8">
+                        בלי מוקדניות ובלי המתנה. משאירים פרטים ואני חוזר אליכם אישית תוך כמה דקות, או פשוט חייגו אליי.
+                    </p>
+                    <div class="flex flex-col gap-4 text-white">
+                        <div class="flex items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/10">
+                            <div class="bg-electric-500 rounded-full p-2"><i data-lucide="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div class="text-right">
+                                <span class="block text-xs text-slate-400">הנייד האישי שלי</span>
+                                <span class="font-bold text-xl dir-ltr">050-1234567</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:w-1/2 bg-white p-8 rounded-3xl w-full max-w-md shadow-2xl">
+                    <h3 class="text-xl font-bold text-navy-900 mb-4 text-center">השארת פרטים ליוסי</h3>
+                    <form class="space-y-4"
+                        onsubmit="event.preventDefault(); Swal.fire({title: 'תודה רבה!', text: 'קיבלתי את ההודעה, אני חוזר אליך בדקות הקרובות.', icon: 'success', confirmButtonColor: '#f59e0b'})">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">שם מלא</label>
+                            <input type="text" placeholder="ישראל ישראלי"
+                                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:border-electric-500 focus:outline-none focus:ring-1 focus:ring-electric-500 transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">טלפון לחזרה</label>
+                            <input type="tel" placeholder="050-0000000"
+                                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:border-electric-500 focus:outline-none focus:ring-1 focus:ring-electric-500 transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">מה הבעיה?</label>
+                            <select
+                                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:border-electric-500 focus:outline-none focus:ring-1 focus:ring-electric-500 transition-colors">
+                                <option>יש לי קצר בבית</option>
+                                <option>התקנת גוף תאורה</option>
+                                <option>בעיה בדוד שמש</option>
+                                <option>עמדת טעינה לרכב</option>
+                                <option>אחר</option>
+                            </select>
+                        </div>
+                        <button
+                            class="w-full bg-electric-500 hover:bg-electric-600 text-white font-bold py-3 rounded-xl transition-all shadow-lg shadow-electric-500/20 active:scale-95">
+                            שלח הודעה ליוסי
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-navy-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8 text-center md:text-right">
+            <div>
+                <div class="flex items-center justify-center md:justify-start gap-2 mb-4">
+                    <i data-lucide="zap" class="w-6 h-6 text-electric-500"></i>
+                    <span class="font-black text-white text-xl">יוסי<span class="text-electric-500">אברהמי</span></span>
+                </div>
+                <p class="text-sm leading-relaxed">חשמלאי מוסמך מס' 123456. שירות אישי, אמין ומקצועי בתל אביב והמרכז.
+                    זמין לכל שאלה.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">איפה אני עובד?</h4>
+                <ul class="space-y-2 text-sm">
+                    <li>תל אביב - יפו</li>
+                    <li>ראשון לציון והסביבה</li>
+                    <li>רמת גן, גבעתיים, בני ברק</li>
+                    <li>חולון ובת ים</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">יצירת קשר ישיר</h4>
+                <ul class="space-y-2 text-sm">
+                    <li class="flex items-center justify-center md:justify-start gap-2"><i data-lucide="phone"
+                            class="w-4 h-4 text-electric-500"></i> 050-1234567</li>
+                    <li class="flex items-center justify-center md:justify-start gap-2"><i data-lucide="mail"
+                            class="w-4 h-4 text-electric-500"></i> yossi@electric.co.il</li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center mt-12 pt-8 border-t border-slate-800 text-xs opacity-50">
+            כל הזכויות שמורות ליוסי אברהמי חשמלאי מוסמך © 2024
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        // 1. Icons
+        lucide.createIcons();
+
+        // 2. Initialize AOS
+        AOS.init({
+            duration: 800,
+            offset: 50,
+            once: true
+        });
+
+        // 3. Initialize Swiper for Services
+        const servicesSwiper = new Swiper('.servicesSwiper', {
+            slidesPerView: 1.2,
+            spaceBetween: 16,
+            centeredSlides: false,
+            navigation: {
+                nextEl: '.swiper-button-next-custom',
+                prevEl: '.swiper-button-prev-custom',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                640: { slidesPerView: 2.2, spaceBetween: 20 },
+                1024: { slidesPerView: 4, spaceBetween: 24 } // Show all 4 on desktop
+            }
+        });
+
+        // 4. Initialize Swiper for Reviews
+        const reviewsSwiper = new Swiper('.reviewsSwiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 5000, // Slower autoplay so people can read
+                disableOnInteraction: true,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                768: { slidesPerView: 2, spaceBetween: 30 },
+                1024: { slidesPerView: 3, spaceBetween: 30 }
+            }
+        });
+
+        // 5. GSAP Hero Animation - Professional entrance with cleanup
+        document.addEventListener("DOMContentLoaded", () => {
+            const tl = gsap.timeline({
+                defaults: { ease: "power3.out" },
+                onComplete: () => {
+                    // Cleanup: remove class and inline styles to restore full CSS hover capability
+                    const heroElements = document.querySelectorAll('.hero-hidden');
+                    heroElements.forEach(el => {
+                        el.classList.remove('hero-hidden');
+                        gsap.set(el, { clearProps: 'all' });
+                    });
+                }
+            });
+
+            const badge = "#hero-badge";
+            const title = "#hero-title";
+            const desc = "#hero-desc";
+            const btns = "#hero-btns a";
+
+            // Elements are already hidden via CSS .hero-hidden
+            // We animate them TO their natural state (opacity 1, transform 0)
+
+            tl.to(badge,
+                { y: 0, autoAlpha: 1, duration: 0.8 }
+            )
+                .to(title,
+                    { x: 0, autoAlpha: 1, duration: 1 },
+                    "-=0.6"
+                )
+                .to(desc,
+                    { y: 0, autoAlpha: 1, duration: 0.8 },
+                    "-=0.6"
+                )
+                .to(btns,
+                    { y: 0, autoAlpha: 1, duration: 0.6, stagger: 0.2 },
+                    "-=0.4"
+                );
+        });
+
+        // 6. Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('shadow-lg', 'py-2');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.remove('shadow-lg', 'py-2');
+                nav.classList.add('py-4');
+            }
+        });
+    </script>
+</body>
+
+</html>
