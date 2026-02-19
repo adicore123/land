@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>השחזת סכינים מקצועית למטבח ולשף | מאסטר בלייד</title>
+    <meta name="description"
+        content="השחזת סכינים מקצועית מא' ועד ת' על אבני מים יפניות. שחזור זוויות, תיקון שברים ושירות פרימיום לשפים, טבחים וחובבי בישול מכל הארץ.">
+    <meta name="keywords" content="השחזת סכינים, משחיז סכינים, אבן מים, שחזור להב, סכין שף, סכין יפנית">
+
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "מאסטר בלייד השחזת סכינים",
+      "image": "https://images.unsplash.com/photo-1593618998160-e34014e67546?auto=format&fit=crop&w=800&q=80",
+      "description": "השחזת סכינים איכותית על אבני מים יפניות בעבודת יד. מומחה בשיקום ותיקון סכינים.",
+      "telephone": "050-1234567",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "תל אביב",
+        "addressCountry": "IL"
+      }
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Assistant', 'sans-serif'] },
+                    colors: {
+                        stone: { 850: '#23201d' },
+                        orange: { 500: '#f97316', 600: '#ea580c' }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f5f5f4;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #d6d3d1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a8a29e;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .dark-glass {
+            background: rgba(28, 25, 23, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .swiper {
+            padding-bottom: 50px !important;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: #f97316 !important;
+        }
+
+        [data-aos] {
+            pointer-events: auto !important;
+        }
+    </style>
+</head>
+
+<body class="bg-stone-50 text-stone-900 overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 py-4 transition-all duration-300 border-b border-transparent">
+        <div class="max-w-5xl mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-2 group cursor-pointer" onclick="window.scrollTo(0,0)">
+                <i data-lucide="sword" class="w-8 h-8 text-orange-500 group-hover:rotate-12 transition-transform"></i>
+                <span class="font-bold text-2xl text-white drop-shadow-md transition-colors" id="logo-text">
+                    מאסטר<span class="text-orange-500">בלייד</span>
+                </span>
+            </div>
+            <div class="hidden md:flex gap-8 font-semibold text-white drop-shadow-md" id="desktop-links">
+                <a href="#about" class="hover:text-orange-400">המומחיות שלנו</a>
+                <a href="#services" class="hover:text-orange-400">מה אנחנו משחיזים?</a>
+                <a href="#reviews" class="hover:text-orange-400">לקוחות</a>
+                <a href="#contact" class="bg-orange-500 hover:bg-orange-600 px-6 py-2 rounded-lg shadow-lg">צור קשר</a>
+            </div>
+            <button id="menu-btn" class="md:hidden text-white"><i data-lucide="menu" class="w-7 h-7"></i></button>
+        </div>
+    </nav>
+
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-stone-900/95 z-40 backdrop-blur-xl translate-x-full transition-transform duration-500 flex flex-col items-center justify-center gap-8 md:hidden">
+        <a href="#about" class="m-link text-2xl font-bold text-white hover:text-orange-500">המומחיות שלנו</a>
+        <a href="#services" class="m-link text-2xl font-bold text-white hover:text-orange-500">סוגי השחזות</a>
+        <a href="#contact" class="m-link text-2xl font-bold text-white hover:text-orange-500">צור קשר</a>
+    </div>
+
+    <!-- Hero -->
+    <header class="relative h-[85vh] flex items-center bg-stone-900 justify-center">
+        <div class="absolute inset-0 overflow-hidden">
+            <img id="hero-image"
+                src="https://images.unsplash.com/photo-1593618998160-e34014e67546?auto=format&fit=crop&w=1600&q=80"
+                alt="השחזת סכין על אבן" class="w-full h-full object-cover scale-105 opacity-50" />
+            <div class="absolute inset-0 bg-gradient-to-l from-stone-900/90 via-stone-900/60 to-transparent"></div>
+        </div>
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center md:text-right pt-10">
+            <h1
+                class="hero-el opacity-0 text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-2xl">
+                מחזירים את <span class="text-orange-500">הנשמה</span><br>לסכין שלך.
+            </h1>
+            <p class="hero-el opacity-0 text-stone-300 text-lg md:text-2xl mb-10 max-w-xl mx-auto md:mx-0 font-light">
+                השחזה יפנית מקצועית על אבני מים מא' ועד ת'. שחזור מדויק, תיקון שברים ופוליש - לשפים ולבשלנים.
+            </p>
+            <div class="hero-el opacity-0">
+                <a href="#contact"
+                    class="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white shadow-xl py-4 px-8 rounded-lg font-bold text-lg hover:scale-105 transition-transform">
+                    הזמן השחזה עכשיו <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-20">
+
+        <!-- Features -->
+        <section class="grid md:grid-cols-3 gap-6 mb-24 -mt-32 relative z-20">
+            <div data-aos="fade-up" class="glass p-8 rounded-2xl text-center shadow-2xl border-orange-200">
+                <i data-lucide="swords" class="w-12 h-12 mx-auto text-orange-500 mb-4"></i>
+                <h3 class="font-bold text-xl mb-2">טכניקה יפנית מסורתית</h3>
+                <p class="text-stone-600 text-sm">השחזה קפדנית על אבני מים יפניות (girt 400 - 8000) לחדות של תער.</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="100" class="glass p-8 rounded-2xl text-center shadow-2xl">
+                <i data-lucide="wrench" class="w-12 h-12 mx-auto text-stone-700 mb-4"></i>
+                <h3 class="font-bold text-xl mb-2">שיקום ותיקון שברים</h3>
+                <p class="text-stone-600 text-sm">נפל הסכין? החוד נשבר? מתמחים ביישור להבים ושחזור זווית החיתוך.</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="200" class="glass p-8 rounded-2xl text-center shadow-2xl">
+                <i data-lucide="truck" class="w-12 h-12 mx-auto text-stone-700 mb-4"></i>
+                <h3 class="font-bold text-xl mb-2">שירות Pick & Drop</h3>
+                <p class="text-stone-600 text-sm">איסוף ומסירה ישירות ממטבח המסעדה או מבית הלקוח.</p>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="mb-24 flex flex-col md:flex-row gap-12 items-center" data-aos="fade-up">
+            <div class="md:w-1/2">
+                <img src="https://images.unsplash.com/photo-1590216781717-109046f0d9aa?auto=format&fit=crop&w=800&q=80"
+                    alt="Sharpening process"
+                    class="rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="md:w-1/2">
+                <span class="text-orange-600 font-bold mb-2 block">מא' ועד ת'</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-6">לרופאים יש איזמל, לשפים יש סכין.</h2>
+                <div class="text-stone-600 space-y-4 mb-6">
+                    <p>השחזה על מכונה חשמלית זולה מחממת את הפלדה והורסת את הלהב. אנו מאמינים בהשחזה ידנית ואיטית.</p>
+                    <p>אני מתאים אישית את זווית ההשחזה בהתאם לפלדה (VG10, פלדת פחמן או אל-חלד), ומבצע גימור סופי על
+                        רצועת עור לפוליש מושלם.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Area -->
+        <section id="services" class="mb-24 bg-stone-900 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden"
+            data-aos="zoom-in">
+            <div class="absolute -top-32 -left-32 w-64 h-64 bg-orange-500/20 rounded-full blur-3xl"></div>
+            <div class="text-center mb-10 relative z-10">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">מומחיות לכל להב</h2>
+                <p class="text-stone-400">אנו מטפלים בכל הסוגים, למעט סכיני שיניים פשוטות.</p>
+            </div>
+
+            <div class="swiper mySwiper relative z-10">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="dark-glass rounded-xl overflow-hidden group">
+                            <img src="https://images.unsplash.com/photo-1580227181534-7226db2cddc4?auto=format&fit=crop&w=500&q=80"
+                                class="w-full h-48 object-cover group-hover:scale-105 transition-transform"
+                                alt="Japanese Knife">
+                            <div class="p-5">
+                                <h3 class="font-bold text-xl mb-1">סכינים יפניות</h3>
+                                <p class="text-stone-400 text-sm">השחזה אסימטרית להבים חד צדדיים (יאנאגיבה, דבה).</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                        <div class="dark-glass rounded-xl overflow-hidden group">
+                            <img src="https://images.unsplash.com/photo-1580196969807-cc6de06c05be?auto=format&fit=crop&w=500&q=80"
+                                class="w-full h-48 object-cover group-hover:scale-105 transition-transform"
+                                alt="Chef Knife">
+                            <div class="p-5">
+                                <h3 class="font-bold text-xl mb-1">סכיני שף מערביות</h3>
+                                <p class="text-stone-400 text-sm">שיחזור עקומת 'Belly' לחיתוך נדנוד חלק ומדויק.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <!-- Reviews (H2) -->
+        <section id="reviews" class="mb-24 text-center" data-aos="fade-up">
+            <h2 class="text-3xl font-extrabold mb-10">מה אומרים השפים?</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div
+                    class="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-stone-100 flex flex-col items-center">
+                    <div class="flex gap-1 text-orange-400 mb-4"><i data-lucide="star" class="fill-current"></i><i
+                            data-lucide="star" class="fill-current"></i><i data-lucide="star"
+                            class="fill-current"></i><i data-lucide="star" class="fill-current"></i><i
+                            data-lucide="star" class="fill-current"></i></div>
+                    <p class="text-stone-600 mb-4 font-medium italic">"סופסוף מישהו שמבין מזה פלדת פחמן ולא הורס לי את
+                        הגיוטו היקרה שלי. חדות מטורפת."</p>
+                    <span class="font-bold">שף איתי, תל אביב</span>
+                </div>
+                <div
+                    class="bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-stone-100 flex flex-col items-center">
+                    <div class="flex gap-1 text-orange-400 mb-4"><i data-lucide="star" class="fill-current"></i><i
+                            data-lucide="star" class="fill-current"></i><i data-lucide="star"
+                            class="fill-current"></i><i data-lucide="star" class="fill-current"></i><i
+                            data-lucide="star" class="fill-current"></i></div>
+                    <p class="text-stone-600 mb-4 font-medium italic">"שירות מושלם. החזיר לי סכין קצבים שהייתה שבורה,
+                        נראית וחותכת כמו מהקופסה."</p>
+                    <span class="font-bold">אביעד קצבים בע"מ</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="mb-12" data-aos="fade-up">
+            <div class="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-stone-200 md:flex md:gap-12">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h2 class="text-3xl font-extrabold mb-4">אל תחכו שהסכין תחליק.</h2>
+                    <p class="text-stone-600 mb-8">השאירו פרטים לתיאום או התקשרו. מחירים מיוחדים לכמויות (מסעדות
+                        וקייטרינג).</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 text-stone-700">
+                            <div class="bg-orange-100 p-3 rounded-full text-orange-600"><i data-lucide="phone"></i>
+                            </div>
+                            <span class="font-bold text-lg dir-ltr">050-1234567</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <form class="bg-stone-50 p-6 rounded-2xl border border-stone-200">
+                        <div class="mb-4">
+                            <label class="block text-sm font-bold mb-2">שם מלא</label>
+                            <input type="text"
+                                class="w-full border-stone-300 rounded-lg p-3 focus:ring-2 focus:ring-orange-500 focus:outline-none"
+                                required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-bold mb-2">טלפון</label>
+                            <input type="tel"
+                                class="w-full border-stone-300 rounded-lg p-3 focus:ring-2 focus:ring-orange-500 focus:outline-none"
+                                required>
+                        </div>
+                        <button type="button" onclick="alert('נשלח!')"
+                            class="w-full bg-stone-900 text-white font-bold py-3.5 rounded-lg hover:bg-stone-800 transition-colors flex items-center justify-center gap-2">
+                            <span>הזמן השחזה</span> <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-stone-400 py-8 text-center border-t border-stone-800">
+        <p>© 2024 מאסטר בלייד - השחזת סכינים מקצועית</p>
+    </footer>
+
+    <a href="https://wa.me/972501234567"
+        class="fixed bottom-6 left-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform">
+        <i data-lucide="message-circle" class="w-6 h-6"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        lucide.createIcons();
+        AOS.init({ once: true, offset: 50 });
+
+        new Swiper(".mySwiper", {
+            slidesPerView: 1, spaceBetween: 20, pagination: { el: ".swiper-pagination", clickable: true },
+            breakpoints: { 640: { slidesPerView: 2, spaceBetween: 20 } }
+        });
+
+        window.onload = () => {
+            gsap.timeline()
+                .from("#hero-image", { duration: 1.5, scale: 1.15, ease: "power2.out" }, 0)
+                .fromTo(".hero-el", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 1, stagger: 0.15 }, "-=1");
+        };
+
+        const nav = document.getElementById('navbar'), logo = document.getElementById('logo-text'), tLinks = document.getElementById('desktop-links'), mBtn = document.getElementById('menu-btn');
+        window.onscroll = () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-stone-900/95', 'backdrop-blur-md', 'shadow-md', 'border-stone-800'); nav.classList.remove('border-transparent');
+            } else {
+                nav.classList.remove('bg-stone-900/95', 'backdrop-blur-md', 'shadow-md', 'border-stone-800'); nav.classList.add('border-transparent');
+            }
+        };
+
+        const mMenu = document.getElementById('mobile-menu');
+        let mOpen = false;
+        mBtn.onclick = () => {
+            mOpen = !mOpen;
+            if (mOpen) { mMenu.classList.remove('translate-x-full'); mBtn.innerHTML = '<i data-lucide="x" class="w-7 h-7"></i>'; }
+            else { mMenu.classList.add('translate-x-full'); mBtn.innerHTML = '<i data-lucide="menu" class="w-7 h-7"></i>'; }
+            lucide.createIcons();
+        };
+        document.querySelectorAll('.m-link').forEach(l => l.onclick = () => {
+            mMenu.classList.add('translate-x-full'); mOpen = false; mBtn.innerHTML = '<i data-lucide="menu" class="w-7 h-7"></i>'; lucide.createIcons();
+        });
+    </script>
+</body>
+
+</html>
