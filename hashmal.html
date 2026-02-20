@@ -1,622 +1,368 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl" class="scroll-smooth">
+<html lang="he" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>יוסי אברהמי - חשמלאי מוסמך והוגן (אתר לדוגמא)</title>
+    <title>קשרים רעילים והצבת גבולות | לוחמת צדק - ייעוץ והעצמה</title>
+    <meta name="description"
+        content="מלווה נשים עם רגישות יתר וקשרים רעילים למצוא את החופש הפנימי שלהן. גלי איך להציב גבולות בריאים ולהחזיר את האהבה העצמית. קליניקה לריפוי והעצמה.">
 
-    <!-- Modern Font: Rubik -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-
-    <!-- Libraries CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Rubik', 'sans-serif'],
+                        sans: ['Assistant', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
                     },
                     colors: {
-                        electric: {
-                            400: '#fbbf24',
-                            500: '#f59e0b',
-                            600: '#d97706',
-                        },
-                        navy: {
-                            800: '#1e293b',
-                            900: '#0f172a',
+                        brand: {
+                            light: '#fdf8f5',
+                            rose: '#d9a0a0',
+                            purple: '#6b4662',
+                            dark: '#2d1b2e',
+                            gold: '#c5a059'
                         }
                     },
                     animation: {
-                        'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
                     }
                 }
             }
         }
     </script>
 
-    <style>
-        .glass-dark {
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        .swiper-pagination-bullet-active {
-            background-color: #f59e0b !important;
-            width: 20px !important;
-            border-radius: 4px !important;
-            transition: all 0.3s ease;
+    <!-- Schema Markup SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "לוחמת צדק - ריפוי והעצמה נשית",
+      "description": "ליווי נשים עם רגישות יתר וקשרים רעילים, להצבת גבולות בריאים, אהבה עצמית וחופש פנימי.",
+      "url": "https://www.example.com",
+      "sameAs": [],
+      "areaServed": {
+        "@type": "Country",
+        "name": "Israel"
+      },
+      "knowsAbout": ["קשרים רעילים", "הצבת גבולות", "העצמה נשית", "רגישות יתר", "ריפוי רגשי"]
+    }
+    </script>
+
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .text-gradient {
-            background: linear-gradient(to right, #fbbf24, #fff);
+            background: linear-gradient(135deg, #6b4662, #c5a059);
             -webkit-background-clip: text;
-            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* Initial state for hero elements to prevent FOUC */
-        .hero-hidden {
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-            /* Pre-set transform for smoother start */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .delay-100 {
+            animation-delay: 100ms;
+        }
+
+        .delay-200 {
+            animation-delay: 200ms;
+        }
+
+        .delay-300 {
+            animation-delay: 300ms;
         }
     </style>
 </head>
 
-<body class="bg-slate-50 text-slate-800 overflow-x-hidden pb-12">
+<body class="bg-brand-light text-brand-dark antialiased font-sans">
 
-    <!-- Demo Banner -->
-    <div
-        class="fixed bottom-0 left-0 w-full bg-slate-900 text-white text-center py-3 z-[100] border-t border-electric-500 shadow-2xl flex items-center justify-center gap-2">
-        <i data-lucide="alert-triangle" class="w-5 h-5 text-electric-500"></i>
-        <span class="font-bold text-sm md:text-base">שים לב: זהו אתר להדגמה בלבד. אין להשאיר פרטים אישיים או כרטיס
-            אשראי.</span>
-    </div>
-
-    <!-- Navbar -->
-    <nav class="fixed top-0 w-full z-50 glass-dark transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
-            <!-- Logo (Personal Brand) -->
-            <div class="flex items-center gap-3 group cursor-pointer" onclick="window.scrollTo(0,0)">
-                <div class="relative bg-electric-500 rounded-full p-2">
-                    <i data-lucide="zap" class="w-6 h-6 text-white fill-white"></i>
-                </div>
-                <div class="flex flex-col">
-                    <span class="font-black text-white text-xl leading-none tracking-tight">יוסי<span
-                            class="text-electric-400">אברהמי</span></span>
-                    <span class="text-xs text-slate-400 font-medium tracking-wider">חשמלאי מוסמך 123456</span>
-                </div>
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 glass shadow-sm transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-serif font-bold text-brand-purple flex items-center gap-2">
+                <i class="fa-regular fa-gem text-brand-gold"></i>
+                לוחמת צדק
             </div>
-
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center gap-8 font-medium text-slate-300">
-                <a href="#services" class="hover:text-electric-400 transition-colors">מה אני עושה</a>
-                <a href="#about" class="hover:text-electric-400 transition-colors">קצת עליי</a>
-                <a href="#reviews" class="hover:text-electric-400 transition-colors">המלצות</a>
-            </div>
-
-            <!-- Emergency Button -->
-            <a href="tel:0500000000"
-                class="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-bold shadow-lg shadow-red-500/30 transition-all hover:scale-105 animate-pulse-fast">
-                <i data-lucide="phone-call" class="w-5 h-5"></i>
-                <span class="hidden md:inline">יוסי, יש לי חירום!</span>
-                <span class="md:hidden">חייג ליוסי</span>
+            <nav class="hidden md:flex gap-6 font-semibold text-brand-dark/80">
+                <a href="#about" class="hover:text-brand-purple transition-colors">הסיפור שלך</a>
+                <a href="#solution" class="hover:text-brand-purple transition-colors">הדרך לריפוי</a>
+                <a href="#toolkit" class="hover:text-brand-purple transition-colors">ההצעה המנצחת</a>
+            </nav>
+            <a href="#toolkit"
+                class="bg-brand-purple text-white px-6 py-2 rounded-full font-bold hover:bg-brand-dark transition-all shadow-md hover:shadow-lg">
+                לפרטים המלאים
             </a>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="relative h-[85vh] w-full bg-navy-900 overflow-hidden flex items-center justify-center">
-        <!-- Background Image (More personal feeling) -->
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1558227691-41ea78d1f631?q=80&w=2000&auto=format&fit=crop"
-                class="w-full h-full object-cover opacity-25" alt="Electrician Background">
-            <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/80 to-transparent"></div>
-        </div>
-
-        <!-- Content -->
-        <div class="relative z-10 container mx-auto px-6 text-center md:text-right pt-16">
-            <div id="hero-badge"
-                class="hero-hidden inline-flex items-center gap-2 bg-electric-500/10 border border-electric-500/20 rounded-full px-4 py-1 mb-6 backdrop-blur-sm"
-                style="transform: translateY(-20px);"> <!-- Override for badge direction -->
-                <span class="w-2 h-2 rounded-full bg-electric-500 animate-ping"></span>
-                <span class="text-electric-400 text-sm font-bold tracking-wide">אני זמין עכשיו בתל אביב והמרכז</span>
-            </div>
-
-            <h1 id="hero-title" class="hero-hidden text-5xl md:text-7xl font-black text-white leading-tight mb-6"
-                style="transform: translateX(30px);"> <!-- Override for title direction -->
-                החשמל נפל? <br>
-                <span class="text-gradient">אני בדרך.</span>
-            </h1>
-
-            <p id="hero-desc"
-                class="hero-hidden text-slate-300 text-lg md:text-xl max-w-xl md:mr-0 mx-auto mb-10 leading-relaxed font-light">
-                נעים להכיר, אני יוסי. חשמלאי שאוהב את המקצוע ונותן שירות מכל הלב.
-                מגיע מהר, מתקן במקצועיות, ומשאיר נקי. בלי אותיות קטנות ובלי הפתעות במחיר.
-            </p>
-
-            <div id="hero-btns" class="flex flex-col md:flex-row gap-4 justify-center md:justify-start">
-                <a href="#contact"
-                    class="hero-hidden bg-electric-500 hover:bg-electric-600 text-white font-bold py-4 px-8 rounded-xl shadow-xl shadow-electric-500/20 transition-all transform hover:-translate-y-1 flex justify-center items-center gap-2">
-                    הזמן אותי עכשיו
-                    <i data-lucide="arrow-left" class="w-5 h-5"></i>
-                </a>
-                <a href="https://wa.me/972500000000"
-                    class="hero-hidden bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 font-bold py-4 px-8 rounded-xl transition-all flex justify-center items-center gap-2">
-                    <i data-lucide="message-circle" class="w-5 h-5 text-green-400"></i>
-                    דבר איתי בווצאפ
-                </a>
-            </div>
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-4 py-20 overflow-hidden">
-
-        <!-- Trust Stats (Personalized) -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-24 border-b border-slate-200 pb-12">
-            <div class="text-center" data-aos="fade-up" data-aos-delay="0">
-                <div class="flex justify-center mb-2"><i data-lucide="award" class="w-8 h-8 text-electric-500"></i>
-                </div>
-                <h3 class="text-xl font-bold text-navy-900">רישיון מוסמך</h3>
-                <p class="text-slate-500 text-sm">מספר 123456</p>
-            </div>
-            <div class="text-center" data-aos="fade-up" data-aos-delay="100">
-                <div class="flex justify-center mb-2"><i data-lucide="clock" class="w-8 h-8 text-electric-500"></i>
-                </div>
-                <h3 class="text-xl font-bold text-navy-900">זמינות גבוהה</h3>
-                <p class="text-slate-500 text-sm">גם בשעות לא שגרתיות</p>
-            </div>
-            <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                <div class="flex justify-center mb-2"><i data-lucide="shield-check"
-                        class="w-8 h-8 text-electric-500"></i></div>
-                <h3 class="text-xl font-bold text-navy-900">אחריות אישית</h3>
-                <p class="text-slate-500 text-sm">על כל עבודה שלי</p>
-            </div>
-            <div class="text-center" data-aos="fade-up" data-aos-delay="300">
-                <div class="flex justify-center mb-2"><i data-lucide="thumbs-up" class="w-8 h-8 text-electric-500"></i>
-                </div>
-                <h3 class="text-xl font-bold text-navy-900">מחיר הוגן</h3>
-                <p class="text-slate-500 text-sm">מסוכם מראש, בלי הפתעות</p>
-            </div>
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-10">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="w-full h-full">
+                <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="url(#grad1)" />
+                <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#d9a0a0;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#6b4662;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+            </svg>
         </div>
 
-        <!-- About Me Section (UPDATED IMAGE) -->
-        <section id="about" class="mb-24 flex flex-col md:flex-row items-center gap-12" data-aos="fade-up">
-            <div class="md:w-1/3 relative">
-                <div class="absolute -inset-4 bg-electric-100 rounded-full blur-2xl -z-10"></div>
-                <!-- Updated Photo -->
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop"
-                    class="rounded-2xl shadow-2xl rotate-2 hover:rotate-0 transition-all duration-500 object-cover h-80 w-full"
-                    alt="Yossi Electrician">
+        <div class="max-w-6xl mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6 opacity-0 animate-fade-in-up">
                 <div
-                    class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg border-r-4 border-electric-500">
-                    <p class="font-bold text-navy-900">יוסי אברהמי</p>
-                    <p class="text-xs text-slate-500">חשמלאי שלך</p>
+                    class="inline-block bg-brand-rose/20 text-brand-purple px-4 py-1.5 rounded-full text-sm font-bold tracking-wide border border-brand-rose/30">
+                    ✨ ריפוי | העצמה | חיבור ללב ✨
                 </div>
-            </div>
-            <div class="md:w-2/3">
-                <h2 class="text-3xl font-black text-navy-900 mb-4">קצת עליי</h2>
-                <p class="text-slate-600 text-lg leading-relaxed mb-6">
-                    היי, אני יוסי. כבר 15 שנה שאני חי ונושם חשמל. התחלתי כעוזר חשמלאי מיד אחרי הצבא, והיום אני גאה לתת
-                    שירות למאות בתי אב במרכז.
-                    <br><br>
-                    אני מאמין שכשאתה מזמין בעל מקצוע הביתה, אתה צריך להרגיש בטוח. בגלל זה אני מקפיד להגיע בזמן, להסביר
-                    בדיוק מה הבעיה ומה הפתרון, ולהשאיר את המקום נקי כאילו זה הבית שלי. אצלי אין "מוקד שירות" – אתה
-                    מתקשר, ואני עונה.
-                </p>
-                <div class="flex gap-4">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Signature_sample.svg/1200px-Signature_sample.svg.png"
-                        class="h-10 opacity-50" alt="Signature">
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section id="services" class="mb-24 bg-slate-100 rounded-[3rem] p-8 md:p-12">
-            <div class="flex justify-between items-end mb-10" data-aos="fade-left">
-                <div>
-                    <span class="text-electric-600 font-bold tracking-wider text-sm uppercase">במה אני יכול
-                        לעזור?</span>
-                    <h2 class="text-3xl md:text-4xl font-black text-navy-900 mt-2">השירותים שלי</h2>
-                </div>
-
-                <div class="hidden md:flex gap-2">
-                    <button
-                        class="swiper-button-prev-custom p-3 rounded-full bg-white text-slate-600 hover:text-electric-600 shadow-sm transition-colors">
-                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                    </button>
-                    <button
-                        class="swiper-button-next-custom p-3 rounded-full bg-navy-900 text-white hover:bg-navy-800 transition-colors shadow-lg">
-                        <i data-lucide="arrow-left" class="w-5 h-5"></i>
-                    </button>
+                <!-- H1 optimized for SEO strictly according to ins.md -->
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight">
+                    לצאת ממעגל של <span class="text-gradient">קשרים רעילים</span> ולמצוא את החופש שלך.
+                </h1>
+                <!-- H2 subordinate to H1 -->
+                <h2 class="text-lg md:text-xl text-gray-700 leading-relaxed font-light">
+                    את נותנת את כל הלב, אבל תמיד נשארת מרוקנת. הגיע הזמן להפסיק לרצות אחרים, להציב גבולות מתוך עוצמה
+                    שקטה, ולהחזיר אליך את השליטה, הביטחון והאהבה העצמית.
+                </h2>
+                <div class="pt-4 flex flex-col sm:flex-row gap-4">
+                    <a href="#toolkit"
+                        class="bg-brand-dark text-white text-center px-8 py-4 rounded-full font-bold text-lg hover:bg-brand-purple transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1">
+                        גלי את ערכת העזרה הראשונה
+                    </a>
                 </div>
             </div>
 
-            <!-- The Swiper -->
-            <div class="swiper servicesSwiper !pb-12 !px-2 md:!px-0 overflow-visible">
-                <div class="swiper-wrapper">
-                    <!-- Cards with "I" language -->
-                    <div class="swiper-slide h-auto">
+            <div class="relative opacity-0 animate-fade-in-up delay-200">
+                <div class="absolute inset-0 bg-brand-gold rounded-full blur-3xl opacity-20 animate-float"></div>
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                    alt="אישה פוסעת אל האור ומשתחררת מקשר רעיל"
+                    class="relative z-10 rounded-[2rem] shadow-2xl object-cover h-[500px] w-full border-4 border-white">
+
+                <div class="absolute -bottom-6 -right-6 glass p-6 rounded-2xl shadow-xl z-20 animate-float delay-100">
+                    <div class="flex items-center gap-4">
                         <div
-                            class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all h-full border border-slate-200">
-                            <i data-lucide="zap-off" class="w-10 h-10 text-electric-500 mb-4"></i>
-                            <h3 class="text-xl font-bold text-navy-900 mb-2">טיפול בקצרים</h3>
-                            <p class="text-slate-500 text-sm">פקק קופץ כל הזמן? יש ריח שרוף מהלוח? אני אגיע לאתר את
-                                המקור ולתקן אותו בבטיחות.</p>
+                            class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xl shadow-inner">
+                            <i class="fa-solid fa-leaf"></i>
                         </div>
-                    </div>
-                    <div class="swiper-slide h-auto">
-                        <div
-                            class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all h-full border border-slate-200">
-                            <i data-lucide="heater" class="w-10 h-10 text-electric-500 mb-4"></i>
-                            <h3 class="text-xl font-bold text-navy-900 mb-2">דוד שמש וחשמל</h3>
-                            <p class="text-slate-500 text-sm">המים לא מתחממים? המפסק נשרף? אני מחליף גופי חימום,
-                                תרמוסטטים ומאיצים במהירות.</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide h-auto">
-                        <div
-                            class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all h-full border border-slate-200">
-                            <i data-lucide="lightbulb" class="w-10 h-10 text-electric-500 mb-4"></i>
-                            <h3 class="text-xl font-bold text-navy-900 mb-2">התקנת גופי תאורה</h3>
-                            <p class="text-slate-500 text-sm">קניתם שנדליר יפה? רוצים ספוטים בסלון? אני אתקין אותם בצורה
-                                אסתטית וחזקה.</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide h-auto">
-                        <div
-                            class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all h-full border border-slate-200">
-                            <i data-lucide="plug-zap" class="w-10 h-10 text-electric-500 mb-4"></i>
-                            <h3 class="text-xl font-bold text-navy-900 mb-2">עמדות טעינה</h3>
-                            <p class="text-slate-500 text-sm">התחדשתם ברכב חשמלי? תתחדשו! אני מתקין עמדות טעינה ביתיות
-                                כולל כל האישורים הנדרשים.</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide h-auto">
-                        <div
-                            class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all h-full border border-slate-200">
-                            <i data-lucide="home" class="w-10 h-10 text-electric-500 mb-4"></i>
-                            <h3 class="text-xl font-bold text-navy-900 mb-2">בדיקות תקינות</h3>
-                            <p class="text-slate-500 text-sm">בדיקת הארקה, ביקורת חברת חשמל, ובדיקות בטיחות תקופתיות
-                                לדירות שכורות וחדשות.</p>
+                        <div>
+                            <div class="font-bold text-brand-dark">גבולות בריאים</div>
+                            <div class="text-sm text-gray-600">הדרך לשלווה פנימית</div>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-pagination"></div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Reviews Section (Expanded) -->
-        <section id="reviews" class="mb-20">
-            <div class="text-center mb-12" data-aos="fade-up">
-                <span class="text-electric-600 font-bold uppercase tracking-widest text-sm">המילה של הלקוחות שלי</span>
-                <h2 class="text-3xl font-black text-navy-900">תראו מה כותבים עליי</h2>
-            </div>
+    <!-- Identify pain points (H2/H3 hierarchy as per SEO rules) -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold mb-12 text-brand-dark">האם את מזהה את עצמך באחד מאלה?
+            </h2>
 
-            <div class="swiper reviewsSwiper !pb-12 !px-4 md:!px-0">
-                <div class="swiper-wrapper">
-                    <!-- Review 1 -->
-                    <div class="swiper-slide">
-                        <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-lg h-full relative">
-                            <div class="absolute top-6 left-6 text-electric-100"><i data-lucide="quote"
-                                    class="w-10 h-10 fill-current"></i></div>
-                            <div class="flex text-electric-500 mb-4"><i data-lucide="star"
-                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
-                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
-                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
-                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
-                                    class="fill-current w-4 h-4"></i></div>
-                            <p class="text-slate-600 italic mb-6 text-sm">"יוסי הגיע אליי בשישי בצהריים אחרי שכל החשמל
-                                במטבח נפל רגע לפני הבישולים. הוא הרגיע אותי בטלפון, הגיע תוך חצי שעה ותיקן את הבעיה
-                                בצ'יק. המחיר היה ממש הוגן יחסית לשעת חירום."</p>
-                            <div>
-                                <h4 class="font-bold text-navy-900">רונית כהן</h4>
-                                <span class="text-xs text-slate-500">גבעתיים</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Review 2 -->
-                    <div class="swiper-slide">
-                        <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-lg h-full relative">
-                            <div class="absolute top-6 left-6 text-electric-100"><i data-lucide="quote"
-                                    class="w-10 h-10 fill-current"></i></div>
-                            <div class="flex text-electric-500 mb-4"><i data-lucide="star"
-                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
-                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
-                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
-                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
-                                    class="fill-current w-4 h-4"></i></div>
-                            <p class="text-slate-600 italic mb-6 text-sm">"חיפשתי חשמלאי להתקנת עמדת טעינה לרכב. יוסי
-                                היה היחיד שבא לראות את השטח לפני שנתן הצעת מחיר, הסביר לי על האופציות ועשה עבודה סופר
-                                אסתטית עם התעלות. מקצוען אמיתי."</p>
-                            <div>
-                                <h4 class="font-bold text-navy-900">אייל ברקוביץ'</h4>
-                                <span class="text-xs text-slate-500">ראשון לציון</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Review 3 -->
-                    <div class="swiper-slide">
-                        <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-lg h-full relative">
-                            <div class="absolute top-6 left-6 text-electric-100"><i data-lucide="quote"
-                                    class="w-10 h-10 fill-current"></i></div>
-                            <div class="flex text-electric-500 mb-4"><i data-lucide="star"
-                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
-                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
-                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
-                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
-                                    class="fill-current w-4 h-4"></i></div>
-                            <p class="text-slate-600 italic mb-6 text-sm">"הדוד שמש הפסיק לחמם באמצע החורף. יוסי הגיע,
-                                זיהה שזה רק הפלאנג', החליף במקום ולא ניסה לדחוף לי דוד חדש כמו אחרים. אמינות זה הדבר הכי
-                                חשוב."</p>
-                            <div>
-                                <h4 class="font-bold text-navy-900">דניאל לוי</h4>
-                                <span class="text-xs text-slate-500">תל אביב</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Review 4 -->
-                    <div class="swiper-slide">
-                        <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-lg h-full relative">
-                            <div class="absolute top-6 left-6 text-electric-100"><i data-lucide="quote"
-                                    class="w-10 h-10 fill-current"></i></div>
-                            <div class="flex text-electric-500 mb-4"><i data-lucide="star"
-                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
-                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
-                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
-                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
-                                    class="fill-current w-4 h-4"></i></div>
-                            <p class="text-slate-600 italic mb-6 text-sm">"שיפצנו את הדירה ויוסי עשה לנו את כל עבודות
-                                החשמל מחדש. הזיז נקודות, הוסיף שקעים, התקין גופים. עבד נקי ומסודר ותמיד עם חיוך. ממליצה
-                                בחום!"</p>
-                            <div>
-                                <h4 class="font-bold text-navy-900">מיכל אהרוני</h4>
-                                <span class="text-xs text-slate-500">חולון</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Review 5 -->
-                    <div class="swiper-slide">
-                        <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-lg h-full relative">
-                            <div class="absolute top-6 left-6 text-electric-100"><i data-lucide="quote"
-                                    class="w-10 h-10 fill-current"></i></div>
-                            <div class="flex text-electric-500 mb-4"><i data-lucide="star"
-                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
-                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
-                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
-                                    class="fill-current w-4 h-4"></i><i data-lucide="star"
-                                    class="fill-current w-4 h-4"></i></div>
-                            <p class="text-slate-600 italic mb-6 text-sm">"בן אדם זהב. הסביר לי בטלפון איך לבדוק אם זה
-                                רק הפקק לפני שבא כדי לחסוך לי ביקור. בסוף כשהיה צריך להגיע הוא היה 100%. אין דברים
-                                כאלה."</p>
-                            <div>
-                                <h4 class="font-bold text-navy-900">אבי ביטון</h4>
-                                <span class="text-xs text-slate-500">בת ים</span>
-                            </div>
-                        </div>
-                    </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-right">
+                <div
+                    class="bg-brand-light p-8 rounded-2xl border border-brand-rose/30 shadow-sm hover:shadow-md transition-shadow group">
+                    <div class="text-brand-purple text-3xl mb-4 group-hover:scale-110 transition-transform"><i
+                            class="fa-solid fa-battery-empty"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-brand-dark">תשישות רגשית</h3>
+                    <p class="text-gray-600 text-sm">את מוצאת את עצמך מנתחת כל מילה שנאמרה. לוקחת אחריות על רגשות של
+                        אחרים, ונשארת בלי אנרגיה לעצמך.</p>
                 </div>
-                <div class="swiper-pagination"></div>
-            </div>
-        </section>
 
-        <!-- CTA Section (Personal contact) -->
-        <section id="contact" class="relative bg-navy-900 rounded-[2.5rem] p-8 md:p-16 overflow-hidden mb-24"
-            data-aos="zoom-in-up">
-            <div
-                class="absolute top-0 right-0 w-96 h-96 bg-electric-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2">
-            </div>
+                <div
+                    class="bg-brand-light p-8 rounded-2xl border border-brand-rose/30 shadow-sm hover:shadow-md transition-shadow group">
+                    <div class="text-brand-purple text-3xl mb-4 group-hover:scale-110 transition-transform"><i
+                            class="fa-solid fa-mask"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-brand-dark">הליכה על ביצים</h3>
+                    <p class="text-gray-600 text-sm">את מפחדת להגיד "לא". מחשש לדרמה או נטישה את מקטינה את צרכייך כדי
+                        שהצד השני יהיה מרוצה מיד.</p>
+                </div>
 
-            <div class="relative z-10 flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-1/2 text-center md:text-right">
-                    <h2 class="text-3xl md:text-5xl font-black text-white mb-6">צריך חשמלאי? דבר איתי.</h2>
-                    <p class="text-slate-300 text-lg mb-8">
-                        בלי מוקדניות ובלי המתנה. משאירים פרטים ואני חוזר אליכם אישית תוך כמה דקות, או פשוט חייגו אליי.
+                <div
+                    class="bg-brand-light p-8 rounded-2xl border border-brand-rose/30 shadow-sm hover:shadow-md transition-shadow group">
+                    <div class="text-brand-purple text-3xl mb-4 group-hover:scale-110 transition-transform"><i
+                            class="fa-solid fa-brain"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-brand-dark">גזלייטינג אילם</h3>
+                    <p class="text-gray-600 text-sm">גורמים לך להרגיש שאת "רגישה מדי", ושתגובותייך מוגזמות, עד שאת
+                        מפקפקת בתחושות הבטן שלך.</p>
+                </div>
+
+                <div
+                    class="bg-brand-light p-8 rounded-2xl border border-brand-rose/30 shadow-sm hover:shadow-md transition-shadow group">
+                    <div class="text-brand-purple text-3xl mb-4 group-hover:scale-110 transition-transform"><i
+                            class="fa-solid fa-heart-crack"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-brand-dark">מגנט נרקיסיסטים</h3>
+                    <p class="text-gray-600 text-sm">בצירוף מקרים כואב, את מוצאת עצמך בסביבת אנשים שלקחו אותך כמובנת
+                        מאליה ורק מרוקנים משאבים.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analysis & Product Suggestion (The logic requested by the user) -->
+    <section id="toolkit" class="py-24 bg-brand-dark text-white relative overflow-hidden">
+        <!-- Abstract Shapes -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-brand-purple rounded-full blur-[100px] opacity-40"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-brand-gold rounded-full blur-[120px] opacity-20"></div>
+
+        <div class="max-w-6xl mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-16 items-center">
+
+            <div class="order-2 md:order-1 relative">
+                <!-- Product Mockup Card -->
+                <div class="glass p-8 rounded-[2rem] border-brand-purple/30 text-right backdrop-blur-xl relative z-10">
+                    <div
+                        class="absolute -top-5 -right-5 bg-brand-gold text-brand-dark font-bold text-lg px-6 py-2 rounded-full shadow-[0_5px_15px_rgba(197,160,89,0.4)] transform rotate-[-3deg]">
+                        הצעה שהיא No-Brainer
+                    </div>
+
+                    <h3 class="text-2xl font-serif text-brand-light mb-2">מוצר היכרות שקשה לסרב לו:</h3>
+                    <h4 class="text-3xl font-bold text-brand-gold mb-6">"ערכת המגן האנרגטי"</h4>
+                    <p class="mb-6 text-gray-300 text-lg leading-relaxed">
+                        נשים שנמצאות בלופ של קשר רעיל נמצאות בהישרדות. הן לא פנויות כרגע לתהליך ליווי של חודשים - הן
+                        צריכות לשרוד את מחר בבוקר.
+                        <strong>תני להן גלגל הצלה מיידי.</strong>
                     </p>
-                    <div class="flex flex-col gap-4 text-white">
-                        <div class="flex items-center gap-4 bg-white/5 p-4 rounded-xl border border-white/10">
-                            <div class="bg-electric-500 rounded-full p-2"><i data-lucide="phone" class="w-5 h-5"></i>
-                            </div>
-                            <div class="text-right">
-                                <span class="block text-xs text-slate-400">הנייד האישי שלי</span>
-                                <span class="font-bold text-xl dir-ltr">050-1234567</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="md:w-1/2 bg-white p-8 rounded-3xl w-full max-w-md shadow-2xl">
-                    <h3 class="text-xl font-bold text-navy-900 mb-4 text-center">השארת פרטים ליוסי</h3>
-                    <form class="space-y-4"
-                        onsubmit="event.preventDefault(); Swal.fire({title: 'תודה רבה!', text: 'קיבלתי את ההודעה, אני חוזר אליך בדקות הקרובות.', icon: 'success', confirmButtonColor: '#f59e0b'})">
+                    <div class="bg-black/30 p-5 rounded-xl border border-white/10 mb-6">
+                        <h5 class="text-brand-rose font-bold mb-3">מה כוללת הערכה (בדיוק מה שהיא חייבת):</h5>
+                        <ul class="space-y-3 text-sm text-gray-200">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-regular fa-circle-check text-brand-gold mt-1"></i>
+                                <span><strong>מדיטציית 'ניתוק כבלים':</strong> הקלטת שמע לניקוי אנרגיות רעילות לפני
+                                    השינה (לשחרר את המחשבות עליו).</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-regular fa-circle-check text-brand-gold mt-1"></i>
+                                <span><strong>נוסחאות ה'לא' העדין:</strong> 15 משפטי העתק-הדבק לאיך מסרבים לאדם דורסני
+                                    בלי ליצור דרמה.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-regular fa-circle-check text-brand-gold mt-1"></i>
+                                <span><strong>מצפן הגזלייטינג:</strong> מדריך PDF כיס לזיהוי כשהוא עושה לך מניפולציה
+                                    וגורם לך לחשוב שאת משוגעת.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white/10 p-6 rounded-xl flex justify-between items-center border border-white/20">
                         <div>
-                            <label class="block text-sm font-medium text-slate-700 mb-1">שם מלא</label>
-                            <input type="text" placeholder="ישראל ישראלי"
-                                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:border-electric-500 focus:outline-none focus:ring-1 focus:ring-electric-500 transition-colors">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-slate-700 mb-1">טלפון לחזרה</label>
-                            <input type="tel" placeholder="050-0000000"
-                                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:border-electric-500 focus:outline-none focus:ring-1 focus:ring-electric-500 transition-colors">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-slate-700 mb-1">מה הבעיה?</label>
-                            <select
-                                class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 focus:border-electric-500 focus:outline-none focus:ring-1 focus:ring-electric-500 transition-colors">
-                                <option>יש לי קצר בבית</option>
-                                <option>התקנת גוף תאורה</option>
-                                <option>בעיה בדוד שמש</option>
-                                <option>עמדת טעינה לרכב</option>
-                                <option>אחר</option>
-                            </select>
+                            <div class="text-gray-400 line-through text-sm">ערך מלא: ₪380</div>
+                            <div class="text-3xl justify-center font-bold text-white flex items-center gap-2">
+                                ₪67 <span class="text-sm font-normal text-brand-gold">מחיר כניסה</span>
+                            </div>
                         </div>
                         <button
-                            class="w-full bg-electric-500 hover:bg-electric-600 text-white font-bold py-3 rounded-xl transition-all shadow-lg shadow-electric-500/20 active:scale-95">
-                            שלח הודעה ליוסי
+                            class="bg-gradient-to-l from-brand-gold to-yellow-600 text-brand-dark px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform shadow-[0_0_20px_rgba(197,160,89,0.3)]">
+                            דוגמה לכפתור רכישה
                         </button>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </section>
 
-    </main>
-
-    <footer class="bg-navy-900 text-slate-400 py-12 border-t border-slate-800">
-        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8 text-center md:text-right">
-            <div>
-                <div class="flex items-center justify-center md:justify-start gap-2 mb-4">
-                    <i data-lucide="zap" class="w-6 h-6 text-electric-500"></i>
-                    <span class="font-black text-white text-xl">יוסי<span class="text-electric-500">אברהמי</span></span>
+            <div class="order-1 md:order-2 space-y-6">
+                <div class="inline-flex items-center gap-3 bg-white/10 px-4 py-2 rounded-full border border-white/20">
+                    <i class="fa-solid fa-lightbulb text-yellow-400"></i>
+                    <span class="text-sm font-bold ml-2 text-white">הניתוח הפסיכולוגי של הקנייה</span>
                 </div>
-                <p class="text-sm leading-relaxed">חשמלאי מוסמך מס' 123456. שירות אישי, אמין ומקצועי בתל אביב והמרכז.
-                    זמין לכל שאלה.</p>
+
+                <h2 class="text-4xl md:text-5xl font-serif font-bold leading-tight">
+                    למה היא <span class="text-brand-gold text-transparent">תשלם על זה ולאהוב כל רגע?</span>
+                </h2>
+
+                <div class="space-y-4 text-gray-300 font-light text-lg">
+                    <p>
+                        כאשר אישה עם <strong>רגישות יתר (HSP)</strong> חווה התקפה אנרגטית מיחסים רעילים, היא חווה קריסה.
+                        להחליט "לצאת לדרך עצמאית וריפוי" נראה לה מפחיד, ענק ויקר.
+                    </p>
+                    <p>
+                        מוצר שמציע <strong class="text-white">"עזרה ראשונה"</strong>, במחיר נמוך וחסר סיכון (67₪ - 97₪),
+                        יצור רכישת אימפולס. היא לא צריכה לחשוב - היא צריכה את הכלי הזה <em>עכשיו</em> כדי לעצור את הכאב
+                        והאשמה שהיא חשה כהרף עין.
+                    </p>
+                </div>
+
+                <div class="p-5 mt-6 border-r-4 border-brand-purple bg-white/5 rounded-l-xl">
+                    <h3 class="text-white font-bold mb-2">מנגנון ההמרה (The Funnel Strategy):</h3>
+                    <p class="text-gray-400 text-sm">
+                        ברגע שהמדיטציה עובדת, או שמשפט ה"לא" שלה עבד בהצלחה מול בן הזוג / אמא / בוסית נרקיסיסטית -
+                        הלקוחה תחווה <strong>ניצחון מהיר</strong> בזכותך.
+                        רמת האמון שלה בך שלוחמת צדק "באמת מבינה מה בתוך הראש שלה" תעלה ל-100%. בשלב הזה, היא תהוקסם ממך,
+                        ומכירת תהליך הליווי (באלפי שקלים) תהפוך לקלה וטבעית.
+                    </p>
+                </div>
             </div>
-            <div>
-                <h4 class="text-white font-bold mb-4">איפה אני עובד?</h4>
-                <ul class="space-y-2 text-sm">
-                    <li>תל אביב - יפו</li>
-                    <li>ראשון לציון והסביבה</li>
-                    <li>רמת גן, גבעתיים, בני ברק</li>
-                    <li>חולון ובת ים</li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-white font-bold mb-4">יצירת קשר ישיר</h4>
-                <ul class="space-y-2 text-sm">
-                    <li class="flex items-center justify-center md:justify-start gap-2"><i data-lucide="phone"
-                            class="w-4 h-4 text-electric-500"></i> 050-1234567</li>
-                    <li class="flex items-center justify-center md:justify-start gap-2"><i data-lucide="mail"
-                            class="w-4 h-4 text-electric-500"></i> yossi@electric.co.il</li>
-                </ul>
+
+        </div>
+    </section>
+
+    <!-- Social Proof / CTA footer -->
+    <section class="py-24 bg-brand-light">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-serif font-bold text-brand-dark mb-4">מוכנה לקחת את הצעד הראשון לשחרור?</h2>
+            <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto font-light">
+                מגיע לך לקבל מערכות יחסים שמזינות אותך ולא מרוקנות אותך. מקום שבו הרגישות שלך היא מתנה, ולא חולשה
+                המנוצלת בידי אחרים.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#"
+                    class="bg-brand-dark text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-brand-purple transition-all shadow-xl flex items-center justify-center gap-3">
+                    <i class="fa-regular fa-envelope text-xl"></i> השאירי פרטים לקליניקה
+                </a>
+                <a href="#toolkit"
+                    class="bg-white border-2 border-brand-dark text-brand-dark px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-all flex items-center justify-center gap-3">
+                    לריפוי המיידי בערכת המגן
+                </a>
             </div>
         </div>
-        <div class="text-center mt-12 pt-8 border-t border-slate-800 text-xs opacity-50">
-            כל הזכויות שמורות ליוסי אברהמי חשמלאי מוסמך © 2024
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-gray-400 py-12 text-center border-t border-brand-purple/20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-2xl font-serif font-bold text-brand-gold mb-6">
+                <i class="fa-regular fa-gem"></i> לוחמת צדק
+            </div>
+            <p class="mb-6">
+                קליניקה לנשים בעלות רגישות יתר, ריפוי והעצמה אחרי מערכות יחסים רעילות.
+            </p>
+            <div class="text-sm">
+                &copy; 2026 לוחמת צדק. נבנה באהבה על פי תקני העיצוב הגבוהים ביותר כולל התאמה ל-Search Engine
+                Optimization.
+            </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <script>
-        // 1. Icons
-        lucide.createIcons();
-
-        // 2. Initialize AOS
-        AOS.init({
-            duration: 800,
-            offset: 50,
-            once: true
-        });
-
-        // 3. Initialize Swiper for Services
-        const servicesSwiper = new Swiper('.servicesSwiper', {
-            slidesPerView: 1.2,
-            spaceBetween: 16,
-            centeredSlides: false,
-            navigation: {
-                nextEl: '.swiper-button-next-custom',
-                prevEl: '.swiper-button-prev-custom',
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                640: { slidesPerView: 2.2, spaceBetween: 20 },
-                1024: { slidesPerView: 4, spaceBetween: 24 } // Show all 4 on desktop
-            }
-        });
-
-        // 4. Initialize Swiper for Reviews
-        const reviewsSwiper = new Swiper('.reviewsSwiper', {
-            slidesPerView: 1,
-            spaceBetween: 30,
-            loop: true,
-            autoplay: {
-                delay: 5000, // Slower autoplay so people can read
-                disableOnInteraction: true,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                768: { slidesPerView: 2, spaceBetween: 30 },
-                1024: { slidesPerView: 3, spaceBetween: 30 }
-            }
-        });
-
-        // 5. GSAP Hero Animation - Professional entrance with cleanup
-        document.addEventListener("DOMContentLoaded", () => {
-            const tl = gsap.timeline({
-                defaults: { ease: "power3.out" },
-                onComplete: () => {
-                    // Cleanup: remove class and inline styles to restore full CSS hover capability
-                    const heroElements = document.querySelectorAll('.hero-hidden');
-                    heroElements.forEach(el => {
-                        el.classList.remove('hero-hidden');
-                        gsap.set(el, { clearProps: 'all' });
-                    });
-                }
-            });
-
-            const badge = "#hero-badge";
-            const title = "#hero-title";
-            const desc = "#hero-desc";
-            const btns = "#hero-btns a";
-
-            // Elements are already hidden via CSS .hero-hidden
-            // We animate them TO their natural state (opacity 1, transform 0)
-
-            tl.to(badge,
-                { y: 0, autoAlpha: 1, duration: 0.8 }
-            )
-                .to(title,
-                    { x: 0, autoAlpha: 1, duration: 1 },
-                    "-=0.6"
-                )
-                .to(desc,
-                    { y: 0, autoAlpha: 1, duration: 0.8 },
-                    "-=0.6"
-                )
-                .to(btns,
-                    { y: 0, autoAlpha: 1, duration: 0.6, stagger: 0.2 },
-                    "-=0.4"
-                );
-        });
-
-        // 6. Navbar Scroll Effect
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 20) {
-                nav.classList.add('shadow-lg', 'py-2');
-                nav.classList.remove('py-4');
-            } else {
-                nav.classList.remove('shadow-lg', 'py-2');
-                nav.classList.add('py-4');
-            }
-        });
-    </script>
 </body>
 
 </html>
