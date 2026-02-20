@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>קשרים רעילים והצבת גבולות | לוחמת צדק - ייעוץ והעצמה</title>
+    <meta name="description"
+        content="מלווה נשים עם רגישות יתר וקשרים רעילים למצוא את החופש הפנימי שלהן. גלי איך להציב גבולות בריאים ולהחזיר את האהבה העצמית. קליניקה לריפוי והעצמה.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Assistant', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            light: '#fdf8f5',
+                            rose: '#d9a0a0',
+                            purple: '#6b4662',
+                            dark: '#2d1b2e',
+                            gold: '#c5a059'
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Schema Markup SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "לוחמת צדק - ריפוי והעצמה נשית",
+      "description": "ליווי נשים עם רגישות יתר וקשרים רעילים, להצבת גבולות בריאים, אהבה עצמית וחופש פנימי.",
+      "url": "https://www.example.com",
+      "sameAs": [],
+      "areaServed": {
+        "@type": "Country",
+        "name": "Israel"
+      },
+      "knowsAbout": ["קשרים רעילים", "הצבת גבולות", "העצמה נשית", "רגישות יתר", "ריפוי רגשי"]
+    }
+    </script>
+
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #6b4662, #c5a059);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .delay-100 {
+            animation-delay: 100ms;
+        }
+
+        .delay-200 {
+            animation-delay: 200ms;
+        }
+
+        .delay-300 {
+            animation-delay: 300ms;
+        }
+    </style>
+</head>
+
+<body class="bg-brand-light text-brand-dark antialiased font-sans">
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 glass shadow-sm transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-serif font-bold text-brand-purple flex items-center gap-2">
+                <i class="fa-regular fa-gem text-brand-gold"></i>
+                לוחמת צדק
+            </div>
+            <nav class="hidden md:flex gap-6 font-semibold text-brand-dark/80">
+                <a href="#about" class="hover:text-brand-purple transition-colors">הסיפור שלך</a>
+                <a href="#solution" class="hover:text-brand-purple transition-colors">הדרך לריפוי</a>
+                <a href="#toolkit" class="hover:text-brand-purple transition-colors">ההצעה המנצחת</a>
+            </nav>
+            <a href="#toolkit"
+                class="bg-brand-purple text-white px-6 py-2 rounded-full font-bold hover:bg-brand-dark transition-all shadow-md hover:shadow-lg">
+                לפרטים המלאים
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-10">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="w-full h-full">
+                <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="url(#grad1)" />
+                <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#d9a0a0;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#6b4662;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6 opacity-0 animate-fade-in-up">
+                <div
+                    class="inline-block bg-brand-rose/20 text-brand-purple px-4 py-1.5 rounded-full text-sm font-bold tracking-wide border border-brand-rose/30">
+                    ✨ ריפוי | העצמה | חיבור ללב ✨
+                </div>
+                <!-- H1 optimized for SEO strictly according to ins.md -->
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight">
+                    לצאת ממעגל של <span class="text-gradient">קשרים רעילים</span> ולמצוא את החופש שלך.
+                </h1>
+                <!-- H2 subordinate to H1 -->
+                <h2 class="text-lg md:text-xl text-gray-700 leading-relaxed font-light">
+                    את נותנת את כל הלב, אבל תמיד נשארת מרוקנת. הגיע הזמן להפסיק לרצות אחרים, להציב גבולות מתוך עוצמה
+                    שקטה, ולהחזיר אליך את השליטה, הביטחון והאהבה העצמית.
+                </h2>
+                <div class="pt-4 flex flex-col sm:flex-row gap-4">
+                    <a href="#toolkit"
+                        class="bg-brand-dark text-white text-center px-8 py-4 rounded-full font-bold text-lg hover:bg-brand-purple transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1">
+                        גלי את ערכת העזרה הראשונה
+                    </a>
+                </div>
+            </div>
+
+            <div class="relative opacity-0 animate-fade-in-up delay-200">
+                <div class="absolute inset-0 bg-brand-gold rounded-full blur-3xl opacity-20 animate-float"></div>
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                    alt="אישה פוסעת אל האור ומשתחררת מקשר רעיל"
+                    class="relative z-10 rounded-[2rem] shadow-2xl object-cover h-[500px] w-full border-4 border-white">
+
+                <div class="absolute -bottom-6 -right-6 glass p-6 rounded-2xl shadow-xl z-20 animate-float delay-100">
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xl shadow-inner">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-brand-dark">גבולות בריאים</div>
+                            <div class="text-sm text-gray-600">הדרך לשלווה פנימית</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Identify pain points (H2/H3 hierarchy as per SEO rules) -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold mb-12 text-brand-dark">האם את מזהה את עצמך באחד מאלה?
+            </h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-right">
+                <div
+                    class="bg-brand-light p-8 rounded-2xl border border-brand-rose/30 shadow-sm hover:shadow-md transition-shadow group">
+                    <div class="text-brand-purple text-3xl mb-4 group-hover:scale-110 transition-transform"><i
+                            class="fa-solid fa-battery-empty"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-brand-dark">תשישות רגשית</h3>
+                    <p class="text-gray-600 text-sm">את מוצאת את עצמך מנתחת כל מילה שנאמרה. לוקחת אחריות על רגשות של
+                        אחרים, ונשארת בלי אנרגיה לעצמך.</p>
+                </div>
+
+                <div
+                    class="bg-brand-light p-8 rounded-2xl border border-brand-rose/30 shadow-sm hover:shadow-md transition-shadow group">
+                    <div class="text-brand-purple text-3xl mb-4 group-hover:scale-110 transition-transform"><i
+                            class="fa-solid fa-mask"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-brand-dark">הליכה על ביצים</h3>
+                    <p class="text-gray-600 text-sm">את מפחדת להגיד "לא". מחשש לדרמה או נטישה את מקטינה את צרכייך כדי
+                        שהצד השני יהיה מרוצה מיד.</p>
+                </div>
+
+                <div
+                    class="bg-brand-light p-8 rounded-2xl border border-brand-rose/30 shadow-sm hover:shadow-md transition-shadow group">
+                    <div class="text-brand-purple text-3xl mb-4 group-hover:scale-110 transition-transform"><i
+                            class="fa-solid fa-brain"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-brand-dark">גזלייטינג אילם</h3>
+                    <p class="text-gray-600 text-sm">גורמים לך להרגיש שאת "רגישה מדי", ושתגובותייך מוגזמות, עד שאת
+                        מפקפקת בתחושות הבטן שלך.</p>
+                </div>
+
+                <div
+                    class="bg-brand-light p-8 rounded-2xl border border-brand-rose/30 shadow-sm hover:shadow-md transition-shadow group">
+                    <div class="text-brand-purple text-3xl mb-4 group-hover:scale-110 transition-transform"><i
+                            class="fa-solid fa-heart-crack"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-brand-dark">מגנט נרקיסיסטים</h3>
+                    <p class="text-gray-600 text-sm">בצירוף מקרים כואב, את מוצאת עצמך בסביבת אנשים שלקחו אותך כמובנת
+                        מאליה ורק מרוקנים משאבים.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analysis & Product Suggestion (The logic requested by the user) -->
+    <section id="toolkit" class="py-24 bg-brand-dark text-white relative overflow-hidden">
+        <!-- Abstract Shapes -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-brand-purple rounded-full blur-[100px] opacity-40"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-brand-gold rounded-full blur-[120px] opacity-20"></div>
+
+        <div class="max-w-6xl mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-16 items-center">
+
+            <div class="order-2 md:order-1 relative">
+                <!-- Product Mockup Card -->
+                <div class="glass p-8 rounded-[2rem] border-brand-purple/30 text-right backdrop-blur-xl relative z-10">
+                    <div
+                        class="absolute -top-5 -right-5 bg-brand-gold text-brand-dark font-bold text-lg px-6 py-2 rounded-full shadow-[0_5px_15px_rgba(197,160,89,0.4)] transform rotate-[-3deg]">
+                        הצעה שהיא No-Brainer
+                    </div>
+
+                    <h3 class="text-2xl font-serif text-brand-light mb-2">מוצר היכרות שקשה לסרב לו:</h3>
+                    <h4 class="text-3xl font-bold text-brand-gold mb-6">"ערכת המגן האנרגטי"</h4>
+                    <p class="mb-6 text-gray-300 text-lg leading-relaxed">
+                        נשים שנמצאות בלופ של קשר רעיל נמצאות בהישרדות. הן לא פנויות כרגע לתהליך ליווי של חודשים - הן
+                        צריכות לשרוד את מחר בבוקר.
+                        <strong>תני להן גלגל הצלה מיידי.</strong>
+                    </p>
+
+                    <div class="bg-black/30 p-5 rounded-xl border border-white/10 mb-6">
+                        <h5 class="text-brand-rose font-bold mb-3">מה כוללת הערכה (בדיוק מה שהיא חייבת):</h5>
+                        <ul class="space-y-3 text-sm text-gray-200">
+                            <li class="flex items-start gap-3">
+                                <i class="fa-regular fa-circle-check text-brand-gold mt-1"></i>
+                                <span><strong>מדיטציית 'ניתוק כבלים':</strong> הקלטת שמע לניקוי אנרגיות רעילות לפני
+                                    השינה (לשחרר את המחשבות עליו).</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-regular fa-circle-check text-brand-gold mt-1"></i>
+                                <span><strong>נוסחאות ה'לא' העדין:</strong> 15 משפטי העתק-הדבק לאיך מסרבים לאדם דורסני
+                                    בלי ליצור דרמה.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="fa-regular fa-circle-check text-brand-gold mt-1"></i>
+                                <span><strong>מצפן הגזלייטינג:</strong> מדריך PDF כיס לזיהוי כשהוא עושה לך מניפולציה
+                                    וגורם לך לחשוב שאת משוגעת.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white/10 p-6 rounded-xl flex justify-between items-center border border-white/20">
+                        <div>
+                            <div class="text-gray-400 line-through text-sm">ערך מלא: ₪380</div>
+                            <div class="text-3xl justify-center font-bold text-white flex items-center gap-2">
+                                ₪67 <span class="text-sm font-normal text-brand-gold">מחיר כניסה</span>
+                            </div>
+                        </div>
+                        <button
+                            class="bg-gradient-to-l from-brand-gold to-yellow-600 text-brand-dark px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform shadow-[0_0_20px_rgba(197,160,89,0.3)]">
+                            דוגמה לכפתור רכישה
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-1 md:order-2 space-y-6">
+                <div class="inline-flex items-center gap-3 bg-white/10 px-4 py-2 rounded-full border border-white/20">
+                    <i class="fa-solid fa-lightbulb text-yellow-400"></i>
+                    <span class="text-sm font-bold ml-2 text-white">הניתוח הפסיכולוגי של הקנייה</span>
+                </div>
+
+                <h2 class="text-4xl md:text-5xl font-serif font-bold leading-tight">
+                    למה היא <span class="text-brand-gold text-transparent">תשלם על זה ולאהוב כל רגע?</span>
+                </h2>
+
+                <div class="space-y-4 text-gray-300 font-light text-lg">
+                    <p>
+                        כאשר אישה עם <strong>רגישות יתר (HSP)</strong> חווה התקפה אנרגטית מיחסים רעילים, היא חווה קריסה.
+                        להחליט "לצאת לדרך עצמאית וריפוי" נראה לה מפחיד, ענק ויקר.
+                    </p>
+                    <p>
+                        מוצר שמציע <strong class="text-white">"עזרה ראשונה"</strong>, במחיר נמוך וחסר סיכון (67₪ - 97₪),
+                        יצור רכישת אימפולס. היא לא צריכה לחשוב - היא צריכה את הכלי הזה <em>עכשיו</em> כדי לעצור את הכאב
+                        והאשמה שהיא חשה כהרף עין.
+                    </p>
+                </div>
+
+                <div class="p-5 mt-6 border-r-4 border-brand-purple bg-white/5 rounded-l-xl">
+                    <h3 class="text-white font-bold mb-2">מנגנון ההמרה (The Funnel Strategy):</h3>
+                    <p class="text-gray-400 text-sm">
+                        ברגע שהמדיטציה עובדת, או שמשפט ה"לא" שלה עבד בהצלחה מול בן הזוג / אמא / בוסית נרקיסיסטית -
+                        הלקוחה תחווה <strong>ניצחון מהיר</strong> בזכותך.
+                        רמת האמון שלה בך שלוחמת צדק "באמת מבינה מה בתוך הראש שלה" תעלה ל-100%. בשלב הזה, היא תהוקסם ממך,
+                        ומכירת תהליך הליווי (באלפי שקלים) תהפוך לקלה וטבעית.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Social Proof / CTA footer -->
+    <section class="py-24 bg-brand-light">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-serif font-bold text-brand-dark mb-4">מוכנה לקחת את הצעד הראשון לשחרור?</h2>
+            <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto font-light">
+                מגיע לך לקבל מערכות יחסים שמזינות אותך ולא מרוקנות אותך. מקום שבו הרגישות שלך היא מתנה, ולא חולשה
+                המנוצלת בידי אחרים.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#"
+                    class="bg-brand-dark text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-brand-purple transition-all shadow-xl flex items-center justify-center gap-3">
+                    <i class="fa-regular fa-envelope text-xl"></i> השאירי פרטים לקליניקה
+                </a>
+                <a href="#toolkit"
+                    class="bg-white border-2 border-brand-dark text-brand-dark px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-all flex items-center justify-center gap-3">
+                    לריפוי המיידי בערכת המגן
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-gray-400 py-12 text-center border-t border-brand-purple/20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-2xl font-serif font-bold text-brand-gold mb-6">
+                <i class="fa-regular fa-gem"></i> לוחמת צדק
+            </div>
+            <p class="mb-6">
+                קליניקה לנשים בעלות רגישות יתר, ריפוי והעצמה אחרי מערכות יחסים רעילות.
+            </p>
+            <div class="text-sm">
+                &copy; 2026 לוחמת צדק. נבנה באהבה על פי תקני העיצוב הגבוהים ביותר כולל התאמה ל-Search Engine
+                Optimization.
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
